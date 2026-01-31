@@ -16,14 +16,13 @@ function crearCopa() {
 
     for (let i = 0; i < 350; i++) {
         const corazon = document.createElement('div');
-        corazon.className = 'corazon-hoja';
+        corazon.className = 'corazon-ho_ja';
         const t = Math.random() * 2 * Math.PI;
         const rRelleno = Math.sqrt(Math.random()); 
         const escala = 12 * rRelleno; 
         const x = escala * (16 * Math.pow(Math.sin(t), 3));
         const y = -escala * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
         
-        // Centrado en el wrapper de 300px
         corazon.style.left = `${x + 150}px`;
         corazon.style.top = `${y + 140}px`;
         corazon.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
@@ -57,7 +56,6 @@ function celebrar() {
 
         var particleCount = 60 * (timeLeft / duration);
         
-        // Lanzamiento desde posiciones aleatorias
         confetti(Object.assign({}, defaults, { 
             particleCount, 
             origin: { x: Math.random() * 0.4, y: Math.random() - 0.2 } 
@@ -68,9 +66,10 @@ function celebrar() {
         }));
     }, 200);
 
+    // 3. LAS DOS ALERTAS (CAMBIO SOLICITADO)
     setTimeout(() => { 
-        alert("¡SABÍA QUE DIRÍAS QUE SÍ!❤️"); 
-         alert("❤️ TE ADORO MI NIÑA PRECIOSA💖✨ "); 
+        alert("SABÍA QUE DIRÍAS QUE SÍ! ❤️");
+        alert("TE ADORO MI NIÑA PRECIOSA 💖✨");
     }, 1000);
 }
 
@@ -79,4 +78,3 @@ window.onload = () => {
     actualizarReloj();
     setInterval(actualizarReloj, 1000);
 };
-
