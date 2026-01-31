@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Especial ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="escena">
+        <div class="pergamino">
+            <div class="contenido">
+                <h2 class="pregunta">Para la niña que me enamoro...</h2>
+                <p class="mensaje">
+                    Contigo siento una conexión que trasciende el tiempo; eres esa persona con la que todo encaja perfectamente. Mi mayor deseo es dedicarme a hacerte feliz y demostrarte lo mucho que te valoro. Por eso, te lo pregunto de corazón.<br>
+                    
+                </p>
+                <div class="contador-caja">
+                    <p>Mi amor por ti comenzó hace...</p>
+                    <div id="reloj">Calculando tiempo...</div>
+                </div>
+                <h2 class="pregunta">¿Me darías el honor de ser tu novio y empezar esta historia juntos?</h2>
+                <div class="contenedor-botones">
+                    <button id="btnSi" onclick="celebrar()">SÍ</button>
+                    <button id="btnNo">NO</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="arbol-seccion">
+            <div class="arbol-wrapper">
+                <div class="tronco-diseno">
+                    <div class="base-arbol"></div>
+                </div>
+                <div id="hojas-contenedor"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="musica" loop src="musica.mp3"></audio>
+    <button onclick="document.getElementById('musica').play()" class="btn-flotante">🎵</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

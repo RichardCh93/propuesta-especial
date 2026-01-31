@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    background-color: #F5E8DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+}
+
+.escena {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+/* PERGAMINO */
+.pergamino {
+    background: #e3c896;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.1), 15px 15px 35px rgba(0,0,0,0.2);
+    border-left: 15px solid #8b4513;
+    border-right: 15px solid #8b4513;
+    width: 400px;
+    text-align: center;
+    color: #5C4033;
+}
+
+#reloj { font-weight: bold; font-size: 1.2rem; color: #8338ec; margin-top: 10px; }
+
+/* SECCIÓN DEL ÁRBOL CENTRADA */
+.arbol-seccion {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centra el árbol horizontalmente */
+    align-items: center;
+}
+
+.arbol-wrapper {
+    position: relative;
+    width: 450px;
+    height: 500px;
+}
+
+.tronco-diseno {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: 35px;
+    height: 160px;
+    background: #2D5A27;
+    transform: translateX(-50%);
+    border-radius: 10px 10px 0 0;
+    z-index: 1;
+}
+
+.base-arbol {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 150px;
+    height: 40px;
+    background: #2D5A27;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+#hojas-contenedor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.corazon-hoja {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    transform: rotate(-45deg) scale(0);
+    animation: aparecer 1.5s ease-out forwards;
+}
+
+.corazon-hoja::before, .corazon-hoja::after {
+    content: ""; position: absolute; width: 18px; height: 18px;
+    background: inherit; border-radius: 50%;
+}
+.corazon-hoja::before { top: -9px; left: 0; }
+.corazon-hoja::after { left: 9px; top: 0; }
+
+@keyframes aparecer { to { transform: rotate(-45deg) scale(1); } }
+
+/* BOTONES */
+.contenedor-botones { position: relative; height: 60px; margin-top: 20px; }
+#btnSi { padding: 12px 40px; background: #ff4d6d; color: white; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; }
+#btnNo { padding: 12px 40px; background: #8e8e8e; color: white; border: none; border-radius: 25px; position: absolute; cursor: pointer; }
+.btn-flotante { position: fixed; bottom: 20px; left: 20px; border-radius: 50%; padding: 12px; border: none; background: #8b4513; color: white; cursor: pointer; }
