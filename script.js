@@ -14,17 +14,21 @@ function crearCopa() {
     const contenedor = document.getElementById('hojas-contenedor');
     const colores = ['#7b2cbf', '#9d4edd', '#be95ff', '#ff4d6d', '#ff0054', '#ff8fa3'];
 
-    for (let i = 0; i < 350; i++) {
+    // 600 corazones para una copa súper frondosa
+    for (let i = 0; i < 800; i++) {
         const corazon = document.createElement('div');
-        corazon.className = 'corazon-ho_ja';
+        corazon.className = 'corazon-hoja';
         const t = Math.random() * 2 * Math.PI;
         const rRelleno = Math.sqrt(Math.random()); 
-        const escala = 12 * rRelleno; 
+        
+        const escala = 14 * rRelleno; 
+        
         const x = escala * (16 * Math.pow(Math.sin(t), 3));
         const y = -escala * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
         
-        corazon.style.left = `${x + 150}px`;
-        corazon.style.top = `${y + 140}px`;
+        // Centrado perfecto sobre el tronco
+        corazon.style.left = `${x + 175}px`;
+        corazon.style.top = `${y + 160}px`;
         corazon.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
         corazon.style.animationDelay = `${Math.random() * 3}s`;
         contenedor.appendChild(corazon);
@@ -41,11 +45,11 @@ btnNo.addEventListener('mouseover', () => {
 });
 
 function celebrar() {
-    // 1. REPRODUCIR MÚSICA
+    // Reproducir música
     const cancion = document.getElementById('musica');
-    cancion.play().catch(e => console.log("Esperando interacción para audio"));
+    cancion.play().catch(e => console.log("Audio esperando clic"));
 
-    // 2. FUEGOS ARTIFICIALES (10 SEGUNDOS)
+    // Fuegos artificiales 10 segundos
     var duration = 10 * 1000;
     var animationEnd = Date.now() + duration;
     var defaults = { startVelocity: 35, spread: 360, ticks: 80, zIndex: 9999 };
@@ -55,7 +59,6 @@ function celebrar() {
         if (timeLeft <= 0) return clearInterval(interval);
 
         var particleCount = 60 * (timeLeft / duration);
-        
         confetti(Object.assign({}, defaults, { 
             particleCount, 
             origin: { x: Math.random() * 0.4, y: Math.random() - 0.2 } 
@@ -66,7 +69,7 @@ function celebrar() {
         }));
     }, 200);
 
-    // 3. LAS DOS ALERTAS (CAMBIO SOLICITADO)
+    // Doble alerta solicitada
     setTimeout(() => { 
         alert("SABÍA QUE DIRÍAS QUE SÍ! ❤️");
         alert("TE ADORO MI NIÑA PRECIOSA 💖✨");
