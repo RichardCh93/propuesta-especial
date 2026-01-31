@@ -4,55 +4,95 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Georgia', serif;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .escena {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 20px;
     width: 100%;
-    max-width: 1200px;
-    gap: 20px;
 }
 
-/* PERGAMINO */
 .pergamino {
     background: #e3c896;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.1), 15px 15px 35px rgba(0,0,0,0.2);
-    border-left: 15px solid #8b4513;
-    border-right: 15px solid #8b4513;
-    width: 400px;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.1), 10px 10px 25px rgba(0,0,0,0.2);
+    border-left: 12px solid #8b4513;
+    border-right: 12px solid #8b4513;
+    width: 100%;
+    max-width: 400px;
     text-align: center;
     color: #5C4033;
 }
 
-#reloj { font-weight: bold; font-size: 1.2rem; color: #8338ec; margin-top: 10px; }
+#reloj { font-weight: bold; font-size: 1.3rem; color: #8338ec; margin: 15px 0; }
 
-/* SECCIÓN DEL ÁRBOL CENTRADA */
+.contenedor-botones { 
+    position: relative; 
+    height: 80px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+#btnSi {
+    padding: 15px 45px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    animation: pulso 2s infinite;
+}
+
+#btnNo {
+    padding: 10px 25px;
+    background: #8e8e8e;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* ÁRBOL */
 .arbol-seccion {
-    flex: 1;
     display: flex;
-    justify-content: center; /* Centra el árbol horizontalmente */
+    justify-content: center;
     align-items: center;
+    min-width: 320px;
 }
 
 .arbol-wrapper {
     position: relative;
-    width: 450px;
-    height: 500px;
+    width: 300px;
+    height: 380px;
 }
 
 .tronco-diseno {
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     left: 50%;
-    width: 35px;
-    height: 160px;
+    width: 25px;
+    height: 120px;
     background: #2D5A27;
     transform: translateX(-50%);
     border-radius: 10px 10px 0 0;
@@ -63,8 +103,8 @@ body {
     position: absolute;
     bottom: -15px;
     left: 50%;
-    width: 150px;
-    height: 40px;
+    width: 120px;
+    height: 35px;
     background: #2D5A27;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -79,23 +119,25 @@ body {
 
 .corazon-hoja {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     transform: rotate(-45deg) scale(0);
     animation: aparecer 1.5s ease-out forwards;
 }
 
 .corazon-hoja::before, .corazon-hoja::after {
-    content: ""; position: absolute; width: 18px; height: 18px;
+    content: ""; position: absolute; width: 15px; height: 15px;
     background: inherit; border-radius: 50%;
 }
-.corazon-hoja::before { top: -9px; left: 0; }
-.corazon-hoja::after { left: 9px; top: 0; }
+.corazon-hoja::before { top: -8px; left: 0; }
+.corazon-hoja::after { left: 8px; top: 0; }
 
 @keyframes aparecer { to { transform: rotate(-45deg) scale(1); } }
 
-/* BOTONES */
-.contenedor-botones { position: relative; height: 60px; margin-top: 20px; }
-#btnSi { padding: 12px 40px; background: #ff4d6d; color: white; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; }
-#btnNo { padding: 12px 40px; background: #8e8e8e; color: white; border: none; border-radius: 25px; position: absolute; cursor: pointer; }
-.btn-flotante { position: fixed; bottom: 20px; left: 20px; border-radius: 50%; padding: 12px; border: none; background: #8b4513; color: white; cursor: pointer; }
+.btn-flotante { position: fixed; bottom: 20px; left: 20px; border-radius: 50%; padding: 12px; border: none; background: #8b4513; color: white; cursor: pointer; z-index: 1000; }
+
+@media (max-width: 768px) {
+    .escena { flex-direction: column; }
+    .arbol-seccion { order: 2; margin-top: -20px; }
+    .pergamino { order: 1; }
+}
