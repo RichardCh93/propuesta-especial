@@ -69,7 +69,8 @@ function celebrar() {
     }, 200);
 
     setTimeout(() => { 
-        alert("¡SABÍA QUE DIRÍAS QUE SÍ! Eres el amor de mi vida ❤️"); 
+        alert("¡SABÍA QUE DIRÍAS QUE SÍ!❤️"); 
+         alert("❤️ TE ADORO MI NIÑA PRECIOSA💖✨ "); 
     }, 1000);
 }
 
@@ -78,3 +79,4 @@ window.onload = () => {
     actualizarReloj();
     setInterval(actualizarReloj, 1000);
 };
+
